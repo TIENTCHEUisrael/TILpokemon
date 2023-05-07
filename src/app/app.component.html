@@ -1,12 +1,12 @@
 <h1>Welcome to {{title}}</h1> 
 <input 
     #input
-    type="text" 
-    (keyup)="0"
+    type="number" 
+    (keyup)="selectedPokemon(input.value)"
     placeholder="Enter the index" >
 <!--h1 (click)="selectPokemon(pokemons[1])">{{pokemons[1].name}}</h1-->
 
-<p>{{input.value}}</p>
+<p>{{pokemonSelected?.name}}</p>
 
 
 <h1>{{pokemons[0].name}}</h1>
