@@ -2,22 +2,18 @@
 <input 
     #input
     type="number" 
-    (keyup)="selectedPokemon(input.value)"
+    (keyup.enter)="selectedPokemon(input.value)"
     placeholder="Enter the index" >
 <!--h1 (click)="selectPokemon(pokemons[1])">{{pokemons[1].name}}</h1-->
 
-<p>{{pokemonSelected?.name}}</p>
+<p *ngIf="pokemonSelected">
+    Vous avez sélectionné le pokemon: {{pokemonSelected.name}}
+</p>
 
+<p *ngIf="!pokemonSelected">
+   Aucun pokemon n'a ete trouvé pour le moment
+</p>
 
-<h1>{{pokemons[0].name}}</h1>
-<h1>{{pokemons[1].name}}</h1>
-<h1>{{pokemons[2].name}}</h1>
-<h1>{{pokemons[3].name}}</h1>
-<h1>{{pokemons[4].name}}</h1>
-<h1>{{pokemons[5].name}}</h1>
-<h1>{{pokemons[6].name}}</h1>
-<h1>{{pokemons[7].name}}</h1>
-<h1>{{pokemons[8].name}}</h1>
-<h1>{{pokemons[9].name}}</h1>
-<h1>{{pokemons[10].name}}</h1>
-<h1>{{pokemons[11].name}}</h1>
+<p *ngFor="let pokemon of pokemons">
+    {{pokemon.name}}
+</p>
