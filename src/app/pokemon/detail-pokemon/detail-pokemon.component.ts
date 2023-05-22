@@ -21,7 +21,9 @@ export class DetailPokemonComponent implements OnInit{
     const pokemonId:number=+this.route.snapshot.paramMap.get('id')!; //On recupere le parametre id de la barre de nav de la route courante
     if(pokemonId){
       //Si il y a une valeur trouvé
-      this.pokemon=this.pokemonService.getPokemonById(+pokemonId);//On attribut a pokemon le pokemon a l'Id trouvé avec le service
+      this.pokemonService.getPokemonById(+pokemonId).subscribe(
+        pokemon=>this.pokemon=pokemon
+      );//On attribut a pokemon le pokemon a l'Id trouvé avec le service
     }
   }
   goToPokemonList(){

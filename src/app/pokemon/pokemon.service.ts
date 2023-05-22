@@ -21,7 +21,7 @@ export class PokemonService {
 
     getPokemonById(pokemonId:number):Observable<Pokemon|undefined>{
      // return POKEMONS.find(pokemon => pokemon.id==pokemonId);
-      return this.http.get<Pokemon>(`api/pokemon/${pokemonId}`).pipe(
+      return this.http.get<Pokemon>(`api/pokemons/${pokemonId}`).pipe(
         tap((pokemon)=>this.log(pokemon)),
         catchError((error)=>{
           return this.handleError(error,undefined);
