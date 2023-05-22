@@ -12,7 +12,7 @@ export class AuthService {
   constructor() { }
 
   logIn(name:string,password:string):Observable<boolean>{
-    const isLoggedIn=(name=='pikachu' && password=='pikachu');
+    const isLoggedIn=(name=='tilpokemon' && password=='tilpokemon');
 
     return of(isLoggedIn).pipe(
       delay(1000),

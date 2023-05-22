@@ -59,4 +59,8 @@ export class PokemonFormComponent implements OnInit {
     }
     return true;
   }
+
+  goBack(){
+    this.router.navigate(['/pokemons']);
+  }
 }

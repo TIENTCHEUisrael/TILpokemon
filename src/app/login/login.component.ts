@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  message:string='Vous etes déconnecté. (pikachu/pikachu)';
+  message:string='Vous etes déconnecté. (tilpokemon/tilpokemon)';
   name:string;
   password:string;
   auth:AuthService;
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
     if(this.auth.isLoggedIn){
       this.message='Vous etes connecté.';
     }else{
-      this.message='Identifiant ou mot de passe non valid.'
+      this.message='Identifiant ou mot de passe Incorrecte.'
     }
   }
 
