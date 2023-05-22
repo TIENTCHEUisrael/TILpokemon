@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pokemon } from '../pokemon';
-import { POKEMONS } from '../mock-pokemon-list';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-detail-pokemon',
@@ -12,14 +12,16 @@ export class DetailPokemonComponent implements OnInit{
   pokemonList:Pokemon[];
   pokemon:Pokemon|undefined;
 
-  constructor(private route:ActivatedRoute,private router:Router){}//Acceder a la route courante et router pour acceder aux router d'angular
-
+  constructor(
+    private route:ActivatedRoute,//Acceder a la route courante
+    private router:Router,// router pour acceder aux router d'angular
+    private pokemonService:PokemonService
+    ){}
   ngOnInit(): void {
-    this.pokemonList=POKEMONS;// On attribut la liste predefini a pokemonList
     const pokemonId:number=+this.route.snapshot.paramMap.get('id')!; //On recupere le parametre id de la barre de nav de la route courante
     if(pokemonId){
       //Si il y a une valeur trouvé
-      this.pokemon=this.pokemonList.find(pokemon=> pokemon.id==pokemonId);//On attribut a pokemon le pokemon a l'Id trouvé
+      this.pokemon=this.pokemonService.getPokemonById(+pokemonId);//On attribut a pokemon le pokemon a l'Id trouvé avec le service
     }
   }
   goToPokemonList(){
