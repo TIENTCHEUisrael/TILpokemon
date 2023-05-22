@@ -6,7 +6,7 @@ import { POKEMONS } from './pokemon/mock-pokemon-list';
   providedIn: 'root'
 })
 export class InMemoryDataService implements InMemoryDbService{
-
+//Stimulation d'une Api fictive avec pour base de donnée POKEMONS
  createDb(){
   const pokemons=POKEMONS;
   return {pokemons};

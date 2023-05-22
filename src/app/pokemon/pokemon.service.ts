@@ -51,6 +51,21 @@ export class PokemonService {
         catchError((error)=>this.handleError(error,null))
       );
     }
+
+    addPokemon(pokemon:Pokemon):Observable<Pokemon>{
+      const httpOption={
+        headers:new HttpHeaders(
+          {
+            'Content-Types':'application/json'
+          }
+        )
+      };
+      return this.http.post<Pokemon>('api/pokemons',pokemon,httpOption).pipe(
+        tap((response)=>this.log(response)),
+        catchError((error)=>this.handleError(error,null))
+      );
+    }
+
     private log(response:any){
       console.table(response);
     }
