@@ -26,6 +26,12 @@ export class DetailPokemonComponent implements OnInit{
       );//On attribut a pokemon le pokemon a l'Id trouvé avec le service
     }
   }
+
+  deletePokemon(pokemon:Pokemon){
+    this.pokemonService.deletePokemonById(pokemon.id).subscribe(
+      ()=>this.goToPokemonList()
+    );
+  }
   goToPokemonList(){
     this.router.navigate(['/pokemons']);
   }
